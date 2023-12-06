@@ -1,11 +1,4 @@
-You may know me for my previous name GamesSanti or for my modification on Craftus Reloaded. I did this to learn more about programming and to have some fun, the idea was stolen from @duffparis, which posted some years ago a modified version of his to reddit, as nothing was published, I made it myself. 
-Tried to get in contact with duff, had no success but, he follows me on github now so I least know that he ain’t dead. @cooolgamer also hopped in this project to help me but nothing much was done, also, but he is still a cool person, go check his other stuff.
-Anyways, I’ve stopped doing this because I didn’t find it enjoyable anymore, if you want to do anything with this, go all on out, I wont touch this project anymore.
 
-Craftus Redisigned is a modified version of Craftus Reloaded : https://github.com/RSDuck/craftus_reloaded.
-
-After launching it for the first time, you can change the controls in `sd:/craftus_redesigned/options.ini`.
-You can also change the settings in `sd:/craftus_redesigned/options.ini`.
 
 ## Controls
 
@@ -33,7 +26,6 @@ You can also change the settings in `sd:/craftus_redesigned/options.ini`.
 |  |  |  |  |
 | Menu | Back | Start | Start |
 
-
 # Credits
 * RSDuck who made Craftus and Craftus Reloaded
 * People who made 3DS homebrew possible
@@ -44,22 +36,16 @@ You can also change the settings in `sd:/craftus_redesigned/options.ini`.
 * Tommaso Checchi, for his [culling algorithm](https://tomcc.github.io/2014/08/31/visibility-1.html), orginally developed for the use in MC PE
 * Of course all other MC devs, how could I forget them?
 * All people who worked on the libraries Craftus is depending on(see the dependencies folder)
+* Everyone who committed to craftus redesigned
 
 # Todo
--*Replace Smea generation with old Craftus generation*
+-*add doors, slabs and stairs*
+-*add survival*
+-*add fluids (lava/water)*
+-*add minecarts*
+-*reach equivalent of minecraft b1.8.1*
+-*day night cycle*
+-*better inventory*
+-*intractable blocks*
+-*tools, items*
 
--*Add entities such as grass, flowers and a torch*
-
--*Add lighting*
-
--*Add sound effects*
-
--*Add background music*
-
--*Make doors actualy work*
-
--*Make semi-transparent blocks possible*
-
--*Make sky better*
-
--*Add inventory slider*
