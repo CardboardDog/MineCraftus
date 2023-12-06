@@ -110,7 +110,7 @@ static bool canceled_deletion = false;
 
 static WorldGenType worldGenType = WorldGen_SuperFlat;
 
-static char* worldGenTypesStr[] = {"Smea", "Superflat"};
+static char* worldGenTypesStr[] = {"Normal", "Superflat"};
 
 static MenuState menustate = MenuState_SelectWorld;
 
@@ -170,13 +170,13 @@ void WorldSelect_Render() {
 	} else if (menustate == MenuState_ConfirmDeletion) {
 		Gui_Offset(0, 10);
 		Gui_BeginRow(SpriteBatch_GetWidth(), 1);
-		Gui_Label(0.f, true, INT16_MAX, true, "Are you sure?");
+		Gui_Label(0.f, true, INT16_MAX, true, "Are you sure you want to delete this world?");
 		Gui_EndRow();
 		Gui_VerticalSpace(Gui_RelativeHeight(0.4f));
 		Gui_BeginRowCenter(Gui_RelativeWidth(0.8f), 3);
-		canceled_deletion = Gui_Button(0.4f, "No");
+		canceled_deletion = Gui_Button(0.4f, "Cancel");
 		Gui_Space(0.2f);
-		confirmed_deletion = Gui_Button(0.4f, "Yes");
+		confirmed_deletion = Gui_Button(0.4f, "Delete");
 		Gui_EndRow();
 	} else if (menustate == MenuState_WorldOptions) {
 		Gui_Offset(0, 10);

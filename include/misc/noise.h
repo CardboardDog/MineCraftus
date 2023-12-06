@@ -1,0 +1,1 @@
+int Get_Random(int x, int y, int seed);
