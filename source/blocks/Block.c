@@ -17,7 +17,8 @@ static Texture_Map textureMap;
 		A(door_top, "door_top.png"), A(door_bottom, "door_bottom.png"), A(snow_grass_side, "snow_grass_side.png"), A(snow, "snow.png"),\
 		A(obsidian, "obsidian.png"), A(sandstone_side, "sandstone_side.png"), A(sandstone_top, "sandstone_top.png"), A(sandstone_bottom, "sandstone_bottom.png"), \
 		A(netherrack, "netherrack.png"), A(smooth_stone, "smooth_stone.png"), A(grass_path_side, "grass_path_side.png"), A(grass_path_top, "grass_path_top.png"), \
-		A(crafting_table_side, "crafting_table_side.png"), A(crafting_table_top, "crafting_table_top.png")
+		A(crafting_table_side, "crafting_table_side.png"), A(crafting_table_top, "crafting_table_top.png"), \
+		A(cactus_side, "cactus_side.png"), A(cactus_top, "cactus_top.png")
 
 #define A(i, n) PPRX n
 const char* texture_files[] = {TEXTURE_FILES};
@@ -55,6 +56,8 @@ static struct {
 	Texture_MapIcon grass_path_top;
 	Texture_MapIcon crafting_table_side;
 	Texture_MapIcon crafting_table_top;
+	Texture_MapIcon cactus_side;
+	Texture_MapIcon cactus_top;
 } icon;
 
 void Block_Init() {
@@ -206,6 +209,19 @@ void Block_GetTexture(Block block, Direction direction, uint8_t metadata, int16_
 			}
 			break;
 		default: break;
+		case Block_Cactus:
+			switch (direction) {
+				case Direction_Bottom:
+					i = icon.cactus_top;
+					break;
+				case Direction_Top:
+					i = icon.cactus_top;
+					break;
+				default:
+					i = icon.cactus_side;
+					break;
+			}
+			break;
 	}
 	out_uv[0] = i.u;
 	out_uv[1] = i.v;
@@ -242,4 +258,4 @@ bool Block_Opaque(Block block, uint8_t metadata) { return block != Block_Air && 
 const char* BlockNames[Blocks_Count] = {"Air",    "Stone", "Dirt",	 "Grass",  "Cobblestone", "Sand", "Log",
 					"Leaves", "Glass", "Stone Bricks", "Bricks", "Planks",      "Wool", "Bedrock", "Gravel",
 					"Water", "Coarse", "Door_Top", "Door_Bottom", "Snow_Grass", "Snow", "Obsidian",
-					"Netherrack", "Sandstone", "Smooth_Stone", "Crafting_Table", "Grass_Path"};
+					"Netherrack", "Sandstone", "Smooth_Stone", "Crafting_Table", "Grass_Path", "Cactus"};

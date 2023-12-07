@@ -12,6 +12,10 @@ void SmeaGen_Generate(WorkQueue* queue, WorkerItem item, void* this) {
 			float px = (float)(x + item.chunk->x * CHUNK_SIZE);
 			float pz = (float)(z + item.chunk->z * CHUNK_SIZE);
 
+			// biomes
+			// biome size is four
+			int biome = Get_Random((item.chunk->x/4),(item.chunk->z/4),198239012);
+
 			// mountains
 			int mountain = 0;
 			int flats = 0;
@@ -21,21 +25,49 @@ void SmeaGen_Generate(WorkQueue* queue, WorkerItem item, void* this) {
 			const int smeasChunkHeight = 16;
 			int height = (int)(((sino_2d((px) / (smeasClusterSize * 4), (pz) / (smeasClusterSize * 4))*mountain)/flats) * smeasClusterSize) +
 				     (smeasChunkHeight * smeasClusterSize / 2);
-			
+
 			for (int y = 0; y < height - 3; y++) {
 				Chunk_SetBlock(item.chunk, x, y, z, Block_Stone);
 			}
 			for (int y = height - 3; y < height; y++) {
-				Chunk_SetBlock(item.chunk, x, y, z, Block_Dirt);
+				if(biome>40 && biome<80){
+					Chunk_SetBlock(item.chunk, x, y, z, Block_Sandstone);
+				}else{
+					Chunk_SetBlock(item.chunk, x, y, z, Block_Dirt);
+				}
 			}
 
-			//biomes
-			if(Get_Random(item.chunk->x,item.chunk->z,198239012)>50){
+			// 1% of land will be covered by trees
+			bool tree = (Get_Random(x,z,112987328)<1);
+
+			// biome top layer
+			if(biome<20){
+				// plains %20
 				Chunk_SetBlock(item.chunk, x, height, z, Block_Grass);
-			}else{
+			}else if(biome<40){
+				// tundra %20
 				Chunk_SetBlock(item.chunk, x, height, z, Block_Snow_Grass);
+			}else if(biome<80){
+				//dessert %40
+				Chunk_SetBlock(item.chunk, x, height, z, Block_Sand);
+			}else if(biome<90){
+				// taiga %10
+				Chunk_SetBlock(item.chunk, x, height, z, Block_Snow_Grass);
+			}else{
+				// forrest %10
+				Chunk_SetBlock(item.chunk, x, height, z, Block_Grass);
+				tree = (Get_Random(x,z,112987328)<10);
 			}
-			
+			if(tree){
+				if(biome>40 && biome<80){
+					Chunk_SetBlock(item.chunk, x, height+1, z, Block_Cactus);
+				}else{
+					Chunk_SetBlock(item.chunk, x, height+1, z, Block_Log);
+					Chunk_SetBlock(item.chunk, x, height+2, z, Block_Log);
+					Chunk_SetBlock(item.chunk, x, height+3, z, Block_Log);
+					Chunk_SetBlock(item.chunk, x, height+4, z, Block_Leaves);
+				}
+			}
 		}
 	}
 }
