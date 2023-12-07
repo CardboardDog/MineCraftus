@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.scons": "python",
+        "*.rose": "rust",
+        "direction.h": "c"
+    }
+}

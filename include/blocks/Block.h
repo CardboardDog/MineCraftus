@@ -33,8 +33,8 @@ enum { Block_Air,
 	   Block_Smooth_Stone,
 	   Block_Crafting_Table,
 	   Block_Grass_Path,
-	   Blocks_Count,
-	   Block_Cactus };
+	   Block_Cactus,
+	   Blocks_Count };
 
 void Block_Init();
 void Block_Deinit();

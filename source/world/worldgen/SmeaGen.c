@@ -1,5 +1,5 @@
 #include <world/worldgen/SmeaGen.h>
-
+#include <world/Structures.h>
 #include <sino/sino.h>
 #include <misc/noise.h>
 void SmeaGen_Init(SmeaGen* gen, World* world) { gen->world = world; }
@@ -62,10 +62,7 @@ void SmeaGen_Generate(WorkQueue* queue, WorkerItem item, void* this) {
 				if(biome>40 && biome<80){
 					Chunk_SetBlock(item.chunk, x, height+1, z, Block_Cactus);
 				}else{
-					Chunk_SetBlock(item.chunk, x, height+1, z, Block_Log);
-					Chunk_SetBlock(item.chunk, x, height+2, z, Block_Log);
-					Chunk_SetBlock(item.chunk, x, height+3, z, Block_Log);
-					Chunk_SetBlock(item.chunk, x, height+4, z, Block_Leaves);
+					Place_ChunkStructure(item,(item.chunk->x*CHUNK_SIZE)+x,height,(item.chunk->z*CHUNK_SIZE)+z,Structure_Tree,gen->world);
 				}
 			}
 		}

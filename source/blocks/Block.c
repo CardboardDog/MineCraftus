@@ -208,7 +208,6 @@ void Block_GetTexture(Block block, Direction direction, uint8_t metadata, int16_
 					break;
 			}
 			break;
-		default: break;
 		case Block_Cactus:
 			switch (direction) {
 				case Direction_Bottom:
@@ -222,6 +221,8 @@ void Block_GetTexture(Block block, Direction direction, uint8_t metadata, int16_
 					break;
 			}
 			break;
+		default: break;
+
 	}
 	out_uv[0] = i.u;
 	out_uv[1] = i.v;
