@@ -39,13 +39,13 @@
 * Everyone who committed to craftus redesigned
 
 # Todo
--*add doors, slabs and stairs*
--*add survival*
--*add fluids (lava/water)*
--*add minecarts*
--*reach equivalent of minecraft b1.8.1*
--*day night cycle*
+- *add doors, slabs and stairs*
+- *add survival*
+- *add fluids (lava/water)*
+- *add minecarts*
+- *reach equivalent of minecraft b1.8.1*
+- *day night cycle*
 -*better inventory*
--*intractable blocks*
--*tools, items*
+- *intractable blocks*
+- *tools, items*
 
