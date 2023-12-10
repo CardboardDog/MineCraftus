@@ -46,6 +46,6 @@
 - *reach equivalent of minecraft b1.8.1*
 - *day night cycle*
 -*better inventory*
-- *intractable blocks*
+- *interact-able blocks*
 - *tools, items*
 
